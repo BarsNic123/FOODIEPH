@@ -9,26 +9,34 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // Matches your FrameLayout XML
+        setContentView(R.layout.activity_main)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        // Set default fragment
-        replaceFragment(HomeFragment())
+        // Initial fragment load
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
+        }
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> replaceFragment(HomeFragment())
-                R.id.nav_profile -> replaceFragment(ProfileFragment())
+                R.id.nav_home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.nav_profile -> {
+                    replaceFragment(ProfileFragment())
+                    true
+                }
                 else -> false
             }
-            true
         }
     }
 
+    // This function MUST be inside the MainActivity class braces
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frame_layout, fragment) // Matches ID in activity_main.xml
+            .replace(R.id.frame_layout, fragment)
             .commit()
     }
 }

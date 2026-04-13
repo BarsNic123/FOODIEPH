@@ -24,7 +24,7 @@ class CategoryAdapter(private val categories: List<Category>) :
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val item = categories[position]
         holder.tvCategoryName.text = item.name
-        holder.ivCategoryImage.setImageResource(item.imageRes)
+        holder.ivCategoryImage.setImageResource(item.imageResId)
     }
 
     override fun getItemCount(): Int = categories.size

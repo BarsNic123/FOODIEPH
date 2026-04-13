@@ -12,7 +12,7 @@ class SignupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.signup) // Matches signup.xml
+        setContentView(R.layout.signup)
 
         val etName = findViewById<EditText>(R.id.etSignUpName)
         val etPhone = findViewById<EditText>(R.id.etSignUpPhone)
@@ -36,15 +36,17 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Save to SharedPreferences for the ProfileFragment to use
+            // SAVE EVERYTHING (Crucial step!)
             val sharedPref = getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
             with(sharedPref.edit()) {
                 putString("USER_NAME", name)
                 putString("USER_PHONE", phone)
+                putString("USER_PASSWORD", pass) // Don't forget the password!
                 apply()
             }
 
-            startActivity(Intent(this, LoginActivity::class.java))
+            Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, PhoneActivity::class.java))
             finish()
         }
     }

@@ -1,5 +1,6 @@
 package com.example.foodieph
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -18,20 +19,22 @@ class PhoneActivity : AppCompatActivity() {
         val tvSignUp = findViewById<TextView>(R.id.tvSignUp)
 
         btnNext.setOnClickListener {
-            val phone = etPhone.text.toString().trim()
+            val phoneInput = etPhone.text.toString().trim()
+            val sharedPref = getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
+            val savedPhone = sharedPref.getString("USER_PHONE", "")
 
-            if (phone.isNotEmpty()) {
+            if (phoneInput == savedPhone && phoneInput.isNotEmpty()) {
+                // Pass the phone number to LoginActivity so the user doesn't type it again
                 val intent = Intent(this, LoginActivity::class.java)
+                intent.putExtra("PHONE_NUMBER", phoneInput)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Please enter your phone number", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Phone number not found", Toast.LENGTH_SHORT).show()
             }
         }
 
-
         tvSignUp.setOnClickListener {
-            val intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SignupActivity::class.java))
         }
     }
 }
