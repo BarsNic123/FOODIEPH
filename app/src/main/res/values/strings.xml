@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FoodiePh</string>
+    <string name="powered_by_menpani_technology">Powered by Menpani Technology</string>
+    <string name="foodie_logo">Foodie Logo</string>
+    <string name="foodie">FOODIE</string>
+    <string name="hungry_we_ve_got_nyou_covered">Hungry? We\'ve Got\nYou Covered!</string>
+    <string name="current_address">Current Address</string>
+    <string name="tayud_cebu_centra">Tayud, Cebu, Centra...</string>
+    <string name="search_your_favourite_restaurants">Search your favourite restaurants...</string>
+    <string name="browse_by_category">Browse by Category</string>
+    <string name="pizza">Pizza</string>
+    <string name="profile">Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="shop">Shop</string>
+    <string name="home">Home</string>
+    <string name="register_now">register now!</string>
+</resources>
