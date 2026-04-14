@@ -27,12 +27,11 @@ class HomeFragment : Fragment(R.layout.homepage) {
         val rvCategories = view.findViewById<RecyclerView>(R.id.rvCategories)
         rvCategories.layoutManager = GridLayoutManager(requireContext(), 4)
 
-        // Pass the click logic here
         rvCategories.adapter = CategoryAdapter(categoryList) { category ->
             // This code runs when a category is clicked
             val intent = Intent(requireContext(), RestaurantListActivity::class.java)
             intent.putExtra("CATEGORY_NAME", category.name)
             startActivity(intent)
-        } // Closed the adapter block
-    } // Closed onViewCreated
-} // Closed the Class
+        }
+    }
+}
