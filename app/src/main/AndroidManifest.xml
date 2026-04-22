@@ -22,9 +22,10 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RestaurantListActivity" android:exported="false" />
-        <activity android:name=".CartActivity" android:exported="false" />
+        <activity android:name=".CartActivity" />
 
         <activity android:name=".PlaceOrderActivity" android:exported="false" />
+        <activity android:name=".OrderHistoryActivity" android:exported="false" />
 
     </application>
 </manifest>

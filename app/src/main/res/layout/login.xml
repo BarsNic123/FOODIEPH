@@ -54,13 +54,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="-50dp"
         app:cardCornerRadius="40dp"
-        app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardElevation="8dp"  app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLoginHeader">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="30dp">
 
@@ -77,12 +76,14 @@
                 android:id="@+id/etLoginPhone"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/bar"
                 android:hint="Phone Number"
                 android:inputType="phone"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp" />
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/etLoginPassword"
@@ -93,7 +94,12 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp" />
+                android:paddingEnd="20dp"
+                android:textColor="#212121"
+                android:textColorHint="#9E9E9E"
+                android:maxLines="1"
+                android:cursorVisible="true"
+                android:textCursorDrawable="@null" />
 
             <Button
                 android:id="@+id/btnLogin"

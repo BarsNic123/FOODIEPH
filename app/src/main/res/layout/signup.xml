@@ -42,13 +42,14 @@
         android:layout_height="0dp"
         android:layout_marginTop="-40dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="0dp"
+        app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivHeaderBackground">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,14 +66,15 @@
 
                 <EditText
                     android:id="@+id/etSignUpName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="39dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/bar"
                     android:hint="Full Name"
                     android:inputType="textPersonName"
-                    android:paddingStart="16dp" />
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,14 +85,15 @@
 
                 <EditText
                     android:id="@+id/etSignUpPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="42dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/bar"
                     android:hint="09xxxxxxxxx"
                     android:inputType="phone"
-                    android:paddingStart="16dp" />
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,14 +104,15 @@
 
                 <EditText
                     android:id="@+id/etReferralCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="52dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/bar"
                     android:hint="Code"
                     android:inputType="text"
-                    android:paddingStart="16dp" />
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -119,14 +123,15 @@
 
                 <EditText
                     android:id="@+id/etSignUpPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="42dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/bar"
                     android:hint="••••••••"
                     android:inputType="textPassword"
-                    android:paddingStart="16dp" />
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -137,14 +142,15 @@
 
                 <EditText
                     android:id="@+id/etSignUpConfirmPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/bar"
                     android:hint="••••••••"
                     android:inputType="textPassword"
-                    android:paddingStart="16dp" />
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
 
                 <Button
                     android:id="@+id/btnSubmit"

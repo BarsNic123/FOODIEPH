@@ -13,12 +13,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Bind IDs from your fragment_profile.xml
         val tvName = view.findViewById<TextView>(R.id.tvUserName)
         val tvPhone = view.findViewById<TextView>(R.id.tvUserPhone)
         val btnLogout = view.findViewById<Button>(R.id.btnLogout)
 
-        // Load data from SharedPreferences
+        // 1. INSERT THIS LINE HERE
+        val clMyOrders = view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.clMyOrders)
+
         val sharedPref = requireActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
         val name = sharedPref.getString("USER_NAME", "Guest User")
         val phone = sharedPref.getString("USER_PHONE", "09XXXXXXXXX")
@@ -26,8 +27,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         tvName.text = name
         tvPhone.text = phone
 
+        // 2. INSERT THE CLICK LISTENER HERE
+        clMyOrders.setOnClickListener {
+            val intent = Intent(requireContext(), OrderHistoryActivity::class.java)
+            startActivity(intent)
+        }
+
         btnLogout.setOnClickListener {
-            // Clear session and return to start
             sharedPref.edit().clear().apply()
             val intent = Intent(requireContext(), GetStartedActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

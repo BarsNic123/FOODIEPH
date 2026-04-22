@@ -2,6 +2,15 @@ package com.example.foodieph
 
 object CartManager {
     private val cartItems = mutableListOf<FoodItem>()
+    private val orderHistory = mutableListOf<FoodItem>()
+
+    fun addOrderToHistory(items: List<FoodItem>) {
+        orderHistory.addAll(items)
+    }
+
+    fun getOrderHistory(): List<FoodItem> {
+        return orderHistory
+    }
 
     fun addItem(item: FoodItem) {
         cartItems.add(item)
@@ -12,8 +21,9 @@ object CartManager {
     }
 
     fun getTotalPrice(): Int {
-        // This removes the '₱' symbol and converts the price to an integer to sum it up
-        return cartItems.sumOf { it.price.replace("₱", "").toInt() }
+        return cartItems.sumOf {
+            it.price.replace("₱", "").trim().toInt()
+        }
     }
 
     fun clearCart() {
