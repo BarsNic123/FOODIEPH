@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView // Don't forget this import
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,33 +17,49 @@ class LoginActivity : AppCompatActivity() {
         val etPhone = findViewById<EditText>(R.id.etLoginPhone)
         val etPassword = findViewById<EditText>(R.id.etLoginPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
-        // RE-ADD THIS LINE:
         val tvSignUpLink = findViewById<TextView>(R.id.tvSignUpLink)
+        val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
 
+        // Automatically fill the phone number passed from PhoneActivity
         val passedPhone = intent.getStringExtra("PHONE_NUMBER")
         etPhone.setText(passedPhone)
-        etPhone.isEnabled = false
 
-        // RE-ADD THIS CLICK LISTENER:
+        tvForgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+
         tvSignUpLink.setOnClickListener {
-            val intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SignupActivity::class.java))
         }
 
         btnLogin.setOnClickListener {
-            val passwordInput = etPassword.text.toString()
+            val phoneInput = etPhone.text.toString().trim()
+            val passwordInput = etPassword.text.toString().trim() // Added trim() for safety
+
+            // Access the "backend" storage
             val sharedPref = getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
+
+            // Fetch the LATEST credentials from the file
+            val savedPhone = sharedPref.getString("USER_PHONE", "")
             val savedPassword = sharedPref.getString("USER_PASSWORD", "")
 
-            if (passwordInput.isEmpty()) {
-                Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show()
-            } else if (passwordInput == savedPassword) {
+            if (phoneInput.isEmpty() || passwordInput.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Verify both Phone AND Password against the backend
+            if (phoneInput == savedPhone && passwordInput == savedPassword) {
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+
                 val intent = Intent(this, MainActivity::class.java)
+                // These flags clear the activity stack so the user can't "Back" into the login screen
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show()
+                // If it fails, let's show a helpful message
+                Toast.makeText(this, "Invalid phone or password", Toast.LENGTH_SHORT).show()
             }
         }
     }

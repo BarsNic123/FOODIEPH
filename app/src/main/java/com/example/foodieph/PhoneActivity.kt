@@ -24,7 +24,7 @@ class PhoneActivity : AppCompatActivity() {
             val savedPhone = sharedPref.getString("USER_PHONE", "")
 
             if (phoneInput == savedPhone && phoneInput.isNotEmpty()) {
-                // Pass the phone number to LoginActivity so the user doesn't type it again
+
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.putExtra("PHONE_NUMBER", phoneInput)
                 startActivity(intent)

@@ -80,10 +80,10 @@
                 android:background="@drawable/bar"
                 android:hint="Phone Number"
                 android:inputType="phone"
-                android:paddingStart="20dp"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:importantForAutofill="no" />
+                android:clickable="true"
+                android:paddingStart="20dp" />
 
             <EditText
                 android:id="@+id/etLoginPassword"

@@ -36,16 +36,18 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // SAVE EVERYTHING (Crucial step!)
+            // SAVE EVERYTHING (Now including the Name!)
             val sharedPref = getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
             with(sharedPref.edit()) {
-                putString("USER_NAME", name)
+                putString("USER_NAME", name)      // Added this line to fix the Profile issue
                 putString("USER_PHONE", phone)
-                putString("USER_PASSWORD", pass) // Don't forget the password!
+                putString("USER_PASSWORD", pass)
                 apply()
             }
 
             Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show()
+
+            // Move to the next screen
             startActivity(Intent(this, PhoneActivity::class.java))
             finish()
         }
