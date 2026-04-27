@@ -5,58 +5,36 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MyOrdersAdapter(private val orders: List<OrderItem>) :
     RecyclerView.Adapter<MyOrdersAdapter.OrderViewHolder>() {
 
     class OrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val foodImage: ImageView = view.findViewById(R.id.ivFoodImage)
-        val foodName: TextView = view.findViewById(R.id.tvFoodName)
-        val restaurant: TextView = view.findViewById(R.id.tvRestaurant)
-        val storeLocation: TextView = view.findViewById(R.id.tvStoreLocation)
-        val serialNumber: TextView = view.findViewById(R.id.tvSerialNumber)
-        val riderDetails: TextView = view.findViewById(R.id.tvRiderDetails)
-        val deliveryTime: TextView = view.findViewById(R.id.tvDeliveryTime)
-        val totalPrice: TextView = view.findViewById(R.id.tvTotalPrice)
-        val quantity: TextView = view.findViewById(R.id.tvQuantity)
+        // Updated to match your NEW item_order_card.xml IDs
+        val foodImage: ImageView = view.findViewById(R.id.ivOrderFoodImage)
+        val foodName: TextView = view.findViewById(R.id.tvOrderFoodName)
+        val restaurant: TextView = view.findViewById(R.id.tvOrderRestaurant)
+        val quantity: TextView = view.findViewById(R.id.tvOrderQty)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
+        // Updated to use the correct layout file name
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_order, parent, false)
+            .inflate(R.layout.item_order_card, parent, false)
         return OrderViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
         val order = orders[position]
 
+        // Only binding the items that still exist in your layout
         holder.foodName.text = order.foodName
         holder.restaurant.text = order.restaurant
         holder.foodImage.setImageResource(order.imageResId)
         holder.quantity.text = "Qty: ${order.quantity}"
 
-        holder.storeLocation.text = "Location: ${order.storeLocation}"
-        holder.serialNumber.text = "SN: ${order.serialNumber}"
-        holder.riderDetails.text = "Rider: ${order.riderName} (ID: ${order.riderId})"
-        holder.deliveryTime.text = "Est. Arrival: ${order.deliveryTime}"
-        holder.totalPrice.text = "Amount Due: ₱${order.totalPrice}"
-
-        holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            Toast.makeText(
-                context,
-                "Viewing details for: ${order.foodName}",
-                Toast.LENGTH_SHORT
-            ).show()
-
-            /* Future implementation:
-               val intent = Intent(context, OrderDetailActivity::class.java)
-               intent.putExtra("ORDER_SN", order.serialNumber)
-               context.startActivity(intent)
-            */
-        }
+        // Removed SN, Rider, Location, and Price lines to match your clean UI
     }
 
     override fun getItemCount(): Int = orders.size

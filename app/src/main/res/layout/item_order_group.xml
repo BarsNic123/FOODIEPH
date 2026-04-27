@@ -47,6 +47,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvGroupLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location: Liloan, Cebu"
+                android:textSize="12sp"
+                android:textColor="#777777" />
+
+            <TextView
+                android:id="@+id/tvGroupRider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rider: Juan Dela Cruz (ID: RIDER-001)"
+                android:textSize="12sp"
+                android:textColor="#777777" />
+
+            <TextView
+                android:id="@+id/tvGroupArrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Est. Arrival: 30-45 mins"
+                android:textSize="12sp"
+                android:textColor="#777777" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
@@ -60,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:text="₱0.00"
                 android:textColor="#E91E63"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

@@ -4,89 +4,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivOrderFoodImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pizza" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
             <TextView
-                android:id="@+id/tvOrderID"
+                android:id="@+id/tvOrderFoodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Order ID: #FPH-9921"
+                android:text="Food Name"
+                android:textColor="#333333"
                 android:textStyle="bold"
-                android:textSize="13sp"
-                android:textColor="#333333" />
-            <TextView
-                android:id="@+id/tvOrderDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date: 2026-04-17"
-                android:layout_alignParentEnd="true"
-                android:textSize="12sp"
-                android:textColor="#777777" />
-        </RelativeLayout>
-
-        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="12dp" />
-
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/ivProductImage"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/pizza"
-                android:scaleType="centerCrop" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@id/ivProductImage">
-
-                <TextView
-                    android:id="@+id/tvProductNamePreview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pepperoni Pizza (and others)"
-                    android:textColor="#333333"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvOrderSummaryText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="x3 items"
-                    android:textColor="#777777" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="12dp" />
-
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-            <TextView
-                android:text="Order Total:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#777777" />
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tvOrderTotalFinal"
+                android:id="@+id/tvOrderRestaurant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₱1,495.00"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#C62828"
-                android:layout_alignParentEnd="true" />
-        </RelativeLayout>
+                android:text="Restaurant Name"
+                android:textColor="#777777"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvOrderQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Qty: 1"
+                android:textColor="#333333"
+                android:textSize="13sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

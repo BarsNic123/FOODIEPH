@@ -23,24 +23,25 @@ class OrderGroupAdapter(private val allTransactions: List<List<OrderItem>>) :
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
         val singleOrder = allTransactions[position]
+        val firstItem = singleOrder[0] // Get details from the first item
 
-        holder.tvOrderId.text = "Order ID: #${singleOrder[0].serialNumber}"
+        holder.tvOrderId.text = "Order ID: #${firstItem.serialNumber}"
 
-        // Calculate the total for this specific group
-        val totalAmount = singleOrder.sumOf { it.totalPrice } + 50 // Adding delivery fee
+        // Set the credentials at the bottom of the card
+        holder.itemView.findViewById<TextView>(R.id.tvGroupLocation).text = "Location: ${firstItem.storeLocation}"
+        holder.itemView.findViewById<TextView>(R.id.tvGroupRider).text = "Rider: ${firstItem.riderName} (${firstItem.riderId})"
+        holder.itemView.findViewById<TextView>(R.id.tvGroupArrival).text = "Est. Arrival: ${firstItem.deliveryTime}"
+
+        // Calculate Total
+        val totalAmount = singleOrder.sumOf { it.totalPrice } + 50
         holder.tvTotal.text = "₱$totalAmount.00"
 
-        // Setup Inner List
+        // Set up the inner list (which is now just simple food items)
         holder.rvInner.layoutManager = LinearLayoutManager(holder.itemView.context)
         holder.rvInner.adapter = MyOrdersAdapter(singleOrder)
 
-        // CLICK LOGIC: Show/Hide the items when the card is clicked
         holder.itemView.setOnClickListener {
-            if (holder.rvInner.visibility == View.GONE) {
-                holder.rvInner.visibility = View.VISIBLE
-            } else {
-                holder.rvInner.visibility = View.GONE
-            }
+            holder.rvInner.visibility = if (holder.rvInner.visibility == View.GONE) View.VISIBLE else View.GONE
         }
     }
 
