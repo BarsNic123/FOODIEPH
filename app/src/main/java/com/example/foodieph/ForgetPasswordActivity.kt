@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -11,6 +12,13 @@ class ForgotPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
+
+        val btnBack = findViewById<ImageView>(R.id.btnBackForgot)
+
+
+        btnBack.setOnClickListener {
+            finish()
+        }
 
         val etPhone = findViewById<EditText>(R.id.etForgotPhone)
         val etNewPassword = findViewById<EditText>(R.id.etNewPassword)
@@ -20,11 +28,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
             val phoneInput = etPhone.text.toString()
             val newPassInput = etNewPassword.text.toString()
 
-            // Link to the "UserDetails" backend/storage
             val sharedPref = getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
 
             val savedPhone = sharedPref.getString("USER_PHONE", "NOT_FOUND")
-            Toast.makeText(this, "Stored phone is: $savedPhone", Toast.LENGTH_LONG).show()
 
             if (phoneInput.isEmpty() || newPassInput.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
