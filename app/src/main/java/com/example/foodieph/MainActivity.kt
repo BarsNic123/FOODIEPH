@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Set the default fragment when the app first opens
+
         if (savedInstanceState == null) {
             replaceFragment(HomeFragment())
         }
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.nav_cart -> { // Use the new ID from the XML
+                R.id.nav_cart -> {
                     val intent = Intent(this, CartActivity::class.java)
                     startActivity(intent)
                     true
@@ -41,8 +41,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    // FIX 2: Added the missing helper function inside the class
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

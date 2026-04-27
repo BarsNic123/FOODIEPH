@@ -2,13 +2,14 @@ package com.example.foodieph
 
 object CartManager {
     private val cartItems = mutableListOf<FoodItem>()
-    private val orderHistory = mutableListOf<FoodItem>()
+    // Change this to OrderItem to match your Adapter
+    private val orderHistory = mutableListOf<OrderItem>()
 
-    fun addOrderToHistory(items: List<FoodItem>) {
+    fun addOrderToHistory(items: List<OrderItem>) {
         orderHistory.addAll(items)
     }
 
-    fun getOrderHistory(): List<FoodItem> {
+    fun getOrderHistory(): List<OrderItem> {
         return orderHistory
     }
 
@@ -22,7 +23,7 @@ object CartManager {
 
     fun getTotalPrice(): Int {
         return cartItems.sumOf {
-            it.price.replace("₱", "").trim().toInt()
+            it.price.replace("₱", "").replace(",", "").trim().toInt()
         }
     }
 

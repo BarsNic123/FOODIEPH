@@ -82,7 +82,6 @@ class RestaurantListActivity : AppCompatActivity() {
             FoodItem("Egg Sandwich", "Breakfast Co", "₱65", "4.1", R.drawable.sandwich, "Sandwich"),
             FoodItem("Chicken Spread", "Pan de Manila", "₱55", "4.6", R.drawable.sandwich, "Sandwich")
 
-            // Note: Keep your Biryani, Chinese, and Meal items from your previous code!
         )
     }
 }

@@ -9,7 +9,7 @@ object SessionManager {
     private val allOrders = mutableListOf<List<FoodItem>>()
 
     fun saveOrder(items: List<FoodItem>) {
-        // We create a new copy of the list so it doesn't get cleared
+
         allOrders.add(ArrayList(items))
     }
 

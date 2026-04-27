@@ -19,7 +19,6 @@ class CartActivity : AppCompatActivity() {
         val btnBack = findViewById<ImageView>(R.id.btnBack)
         val btnCheckout = findViewById<Button>(R.id.btnCheckout)
 
-        // Find the total views
         val tvSubtotal = findViewById<TextView>(R.id.tvSubtotal)
         val tvTotalAmount = findViewById<TextView>(R.id.tvTotalAmount)
 
@@ -27,12 +26,10 @@ class CartActivity : AppCompatActivity() {
         val itemsInCart = CartManager.getItems()
         rvCartItems.adapter = FoodAdapter(itemsInCart)
 
-        // Calculate Prices
         val subtotal = CartManager.getTotalPrice()
         val deliveryFee = 49
         val grandTotal = subtotal + deliveryFee
 
-        // Update the screen
         tvSubtotal.text = "₱$subtotal.00"
         tvTotalAmount.text = "₱$grandTotal.00"
 

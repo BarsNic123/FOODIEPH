@@ -28,7 +28,7 @@ class HomeFragment : Fragment(R.layout.homepage) {
         rvCategories.layoutManager = GridLayoutManager(requireContext(), 4)
 
         rvCategories.adapter = CategoryAdapter(categoryList) { category ->
-            // This code runs when a category is clicked
+
             val intent = Intent(requireContext(), RestaurantListActivity::class.java)
             intent.putExtra("CATEGORY_NAME", category.name)
             startActivity(intent)

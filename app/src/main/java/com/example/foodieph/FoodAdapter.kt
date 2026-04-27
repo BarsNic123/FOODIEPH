@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 class FoodAdapter(private val foodList: List<FoodItem>) :
     RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
-    // Define the views inside your item_food_choice.xml
     class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivFoodImage: ImageView = view.findViewById(R.id.ivFoodImage)
         val tvFoodName: TextView = view.findViewById(R.id.tvFoodName)

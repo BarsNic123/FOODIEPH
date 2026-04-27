@@ -47,7 +47,6 @@ class SignupActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show()
 
-            // Move to the next screen
             startActivity(Intent(this, PhoneActivity::class.java))
             finish()
         }

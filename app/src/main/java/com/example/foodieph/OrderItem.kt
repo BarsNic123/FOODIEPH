@@ -7,7 +7,7 @@ data class OrderItem(
     val restaurant: String,
     val storeLocation: String,
     val quantity: Int,
-    val totalPrice: String,
+    val totalPrice: Int,
     val deliveryTime: String,
     val riderName: String,
     val riderId: String

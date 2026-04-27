@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MyOrdersAdapter(private val orders: List<OrderItem>) :
@@ -31,18 +32,31 @@ class MyOrdersAdapter(private val orders: List<OrderItem>) :
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
         val order = orders[position]
 
-        // Basic Info
         holder.foodName.text = order.foodName
         holder.restaurant.text = order.restaurant
         holder.foodImage.setImageResource(order.imageResId)
         holder.quantity.text = "Qty: ${order.quantity}"
 
-        // New Credentials Logic
         holder.storeLocation.text = "Location: ${order.storeLocation}"
         holder.serialNumber.text = "SN: ${order.serialNumber}"
         holder.riderDetails.text = "Rider: ${order.riderName} (ID: ${order.riderId})"
         holder.deliveryTime.text = "Est. Arrival: ${order.deliveryTime}"
         holder.totalPrice.text = "Amount Due: ₱${order.totalPrice}"
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            Toast.makeText(
+                context,
+                "Viewing details for: ${order.foodName}",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            /* Future implementation:
+               val intent = Intent(context, OrderDetailActivity::class.java)
+               intent.putExtra("ORDER_SN", order.serialNumber)
+               context.startActivity(intent)
+            */
+        }
     }
 
     override fun getItemCount(): Int = orders.size

@@ -32,10 +32,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 // If phone matches, update the password in the "backend"
                 with(sharedPref.edit()) {
                     putString("USER_PASSWORD", newPassInput)
-                    apply() // Saves changes asynchronously
+                    apply()
                 }
                 Toast.makeText(this, "Password updated successfully!", Toast.LENGTH_SHORT).show()
-                finish() // Returns user to LoginActivity
+                finish()
             } else {
                 Toast.makeText(this, "Phone number not registered", Toast.LENGTH_SHORT).show()
             }

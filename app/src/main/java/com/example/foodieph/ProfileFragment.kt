@@ -31,7 +31,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             startActivity(intent)
         }
 
-        // Logout logic: Clears the "backend" and returns to the start screen
+
         btnLogout.setOnClickListener {
             sharedPref.edit().clear().apply()
             val intent = Intent(requireContext(), GetStartedActivity::class.java)

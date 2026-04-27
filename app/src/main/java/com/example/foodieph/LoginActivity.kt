@@ -53,12 +53,12 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, MainActivity::class.java)
-                // These flags clear the activity stack so the user can't "Back" into the login screen
+
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
             } else {
-                // If it fails, let's show a helpful message
+
                 Toast.makeText(this, "Invalid phone or password", Toast.LENGTH_SHORT).show()
             }
         }
