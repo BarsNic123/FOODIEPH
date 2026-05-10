@@ -1,10 +1,11 @@
 package com.example.foodieph
 
-import android.content.Intent // FIX 1: Added this import
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,12 +13,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         if (savedInstanceState == null) {
             replaceFragment(HomeFragment())
         }
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        val fabCart = findViewById<FloatingActionButton>(R.id.fabCart)
+
+        // FAB cart button opens CartActivity
+        fabCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
 
         bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -27,8 +33,13 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_cart -> {
-                    val intent = Intent(this, CartActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, CartActivity::class.java))
+                    true
+                }
+
+                R.id.nav_notifications -> {
+                    // Notifications tab — show orders history as notification hub
+                    startActivity(Intent(this, OrderHistoryActivity::class.java))
                     true
                 }
 
@@ -41,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

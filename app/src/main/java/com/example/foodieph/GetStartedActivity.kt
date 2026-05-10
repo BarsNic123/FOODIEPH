@@ -13,7 +13,7 @@ class GetStartedActivity : AppCompatActivity() {
 
         val btnStart = findViewById<Button>(R.id.btnStart)
         btnStart.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, PhoneActivity::class.java)
             startActivity(intent)
         }
     }

@@ -33,7 +33,7 @@ class OrderGroupAdapter(private val allTransactions: List<List<OrderItem>>) :
         holder.itemView.findViewById<TextView>(R.id.tvGroupArrival).text = "Est. Arrival: ${firstItem.deliveryTime}"
 
         // Calculate Total
-        val totalAmount = singleOrder.sumOf { it.totalPrice } + 50
+        val totalAmount = singleOrder.sumOf { it.totalPrice } + 49
         holder.tvTotal.text = "₱$totalAmount.00"
 
         // Set up the inner list (which is now just simple food items)

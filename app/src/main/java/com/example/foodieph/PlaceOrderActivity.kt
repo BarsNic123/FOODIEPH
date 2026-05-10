@@ -40,7 +40,7 @@ class PlaceOrderActivity : AppCompatActivity() {
 
         // Setup Prices
         val subtotal = CartManager.getTotalPrice()
-        val deliveryFee = 50
+        val deliveryFee = 49
         val total = subtotal + deliveryFee
         tvSubtotal.text = "₱$subtotal.00"
         tvGrandTotal.text = "₱$total.00"

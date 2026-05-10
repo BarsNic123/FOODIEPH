@@ -11,17 +11,19 @@
         android:theme="@style/Theme.FoodiePH">
 
         <activity
-            android:name=".GetStartedActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FoodiePH">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignupActivity" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".PhoneActivity" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".LoginActivity" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".GetStartedActivity" android:exported="false" />
+        <activity android:name=".SignupActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
+        <activity android:name=".PhoneActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
+        <activity android:name=".LoginActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
         <activity android:name=".ForgotPasswordActivity" android:exported="false" />
 
         <activity android:name=".MainActivity" android:exported="true" />

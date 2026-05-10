@@ -19,6 +19,9 @@ class SignupActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etSignUpPassword)
         val etConfirm = findViewById<EditText>(R.id.etSignUpConfirmPassword)
         val btnSubmit = findViewById<Button>(R.id.btnSubmit)
+        val ivBack = findViewById<android.widget.ImageView>(R.id.ivBack)
+
+        ivBack.setOnClickListener { finish() }
 
         btnSubmit.setOnClickListener {
             val name = etName.text.toString().trim()

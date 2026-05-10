@@ -47,6 +47,27 @@ class RestaurantListActivity : AppCompatActivity() {
             FoodItem("Big Mac", "McDonald's", "₱175", "4.4", R.drawable.burger, "Burger"),
             FoodItem("Cheeseburger", "Army Navy", "₱220", "4.8", R.drawable.burger, "Burger"),
 
+            // MEAL
+            FoodItem("Chickenjoy", "Jollibee", "₱99", "4.9", R.drawable.meal, "Meal"),
+            FoodItem("Chicken McDo", "McDonald's", "₱89", "4.7", R.drawable.meal, "Meal"),
+            FoodItem("Crispy Chicken", "KFC", "₱110", "4.6", R.drawable.meal, "Meal"),
+            FoodItem("Pork BBQ", "Mang Inasal", "₱75", "4.8", R.drawable.meal, "Meal"),
+            FoodItem("Tapsilog", "Local Carinderia", "₱65", "4.5", R.drawable.meal, "Meal"),
+
+            // CHINESE
+            FoodItem("Dimsum", "Chowking", "₱55", "4.5", R.drawable.chinese, "Chinese"),
+            FoodItem("Fried Rice", "Chowking", "₱65", "4.4", R.drawable.chinese, "Chinese"),
+            FoodItem("Wonton Soup", "Chowking", "₱75", "4.3", R.drawable.chinese, "Chinese"),
+            FoodItem("Beef Noodles", "Chowking", "₱95", "4.6", R.drawable.chinese, "Chinese"),
+            FoodItem("Siomai", "Local Stall", "₱30", "4.7", R.drawable.chinese, "Chinese"),
+
+            // BIRYANI
+            FoodItem("Chicken Biryani", "Spice Garden", "₱180", "4.7", R.drawable.biriyani, "Biryani"),
+            FoodItem("Lamb Biryani", "Spice Garden", "₱220", "4.8", R.drawable.biriyani, "Biryani"),
+            FoodItem("Veg Biryani", "Spice Garden", "₱150", "4.5", R.drawable.biriyani, "Biryani"),
+            FoodItem("Prawn Biryani", "Spice Garden", "₱250", "4.9", R.drawable.biriyani, "Biryani"),
+            FoodItem("Mutton Biryani", "Spice Garden", "₱240", "4.6", R.drawable.biriyani, "Biryani"),
+
             // JUICES
             FoodItem("Orange Juice", "Fruitas", "₱85", "4.5", R.drawable.juices, "Juices"),
             FoodItem("Mango Shake", "Thirsty", "₱95", "4.7", R.drawable.juices, "Juices"),
@@ -81,7 +102,6 @@ class RestaurantListActivity : AppCompatActivity() {
             FoodItem("Tuna Melt", "Subway", "₱160", "4.4", R.drawable.sandwich, "Sandwich"),
             FoodItem("Egg Sandwich", "Breakfast Co", "₱65", "4.1", R.drawable.sandwich, "Sandwich"),
             FoodItem("Chicken Spread", "Pan de Manila", "₱55", "4.6", R.drawable.sandwich, "Sandwich")
-
         )
     }
 }

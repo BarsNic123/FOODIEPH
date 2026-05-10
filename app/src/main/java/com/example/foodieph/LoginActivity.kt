@@ -19,6 +19,10 @@ class LoginActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvSignUpLink = findViewById<TextView>(R.id.tvSignUpLink)
         val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
+        val ivBack = findViewById<android.widget.ImageView>(R.id.ivBack)
+
+        // Back button goes back to PhoneActivity
+        ivBack.setOnClickListener { finish() }
 
         // Automatically fill the phone number passed from PhoneActivity
         val passedPhone = intent.getStringExtra("PHONE_NUMBER")
