@@ -52,5 +52,13 @@
             android:windowSoftInputMode="adjustResize"
             android:exported="false" />
 
+        <!-- Phase 3: Admin panel -->
+        <activity android:name=".AdminLoginActivity" android:exported="false" />
+        <activity android:name=".AdminDashboardActivity" android:exported="false" />
+        <activity android:name=".AdminRestaurantsActivity" android:exported="false" />
+        <activity android:name=".AdminRidersActivity" android:exported="false" />
+        <activity android:name=".AdminOrdersActivity" android:exported="false" />
+        <activity android:name=".AdminUsersActivity" android:exported="false" />
+
     </application>
 </manifest>
