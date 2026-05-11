@@ -3,6 +3,7 @@ package com.example.foodieph
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,12 +17,40 @@ class RestaurantListActivity : AppCompatActivity() {
         val btnBack = findViewById<ImageView>(R.id.btnBack)
         val tvToolbarTitle = findViewById<TextView>(R.id.tvToolbarTitle)
         val rvRestaurants = findViewById<RecyclerView>(R.id.rvRestaurants)
+        val btnFavourite = findViewById<ImageView>(R.id.btnFavourite)
 
         val categoryTitle = intent.getStringExtra("CATEGORY_NAME") ?: "Food Items"
         tvToolbarTitle.text = categoryTitle
 
-        btnBack.setOnClickListener {
-            finish()
+        btnBack.setOnClickListener { finish() }
+
+        // Check if this category is already a favourite and update icon
+        FavouritesManager.isFavourite(categoryTitle) { isFav ->
+            runOnUiThread {
+                btnFavourite.setImageResource(
+                    if (isFav) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
+                )
+            }
+        }
+
+        btnFavourite.setOnClickListener {
+            FavouritesManager.isFavourite(categoryTitle) { isFav ->
+                if (isFav) {
+                    FavouritesManager.removeFavourite(categoryTitle) {
+                        runOnUiThread {
+                            btnFavourite.setImageResource(R.drawable.ic_heart_outline)
+                            Toast.makeText(this, "$categoryTitle removed from favourites", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    FavouritesManager.addFavourite(categoryTitle) {
+                        runOnUiThread {
+                            btnFavourite.setImageResource(R.drawable.ic_heart_filled)
+                            Toast.makeText(this, "$categoryTitle added to favourites!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
         }
 
         val allFoods = getAllFoodItems()

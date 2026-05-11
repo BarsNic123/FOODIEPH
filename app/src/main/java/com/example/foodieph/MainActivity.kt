@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_notifications -> {
-                    // Notifications tab — show orders history as notification hub
-                    startActivity(Intent(this, OrderHistoryActivity::class.java))
+                    startActivity(Intent(this, NotificationsActivity::class.java))
                     true
                 }
 

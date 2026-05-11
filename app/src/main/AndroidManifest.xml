@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.foodieph">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodiePH">
 
+        <!-- Launcher -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -20,18 +23,34 @@
             </intent-filter>
         </activity>
 
+        <!-- Auth flow -->
         <activity android:name=".GetStartedActivity" android:exported="false" />
-        <activity android:name=".SignupActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
-        <activity android:name=".PhoneActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
-        <activity android:name=".LoginActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
+        <activity android:name=".SignupActivity" android:windowSoftInputMode="adjustResize" android:exported="false" />
+        <activity android:name=".PhoneActivity" android:windowSoftInputMode="adjustResize" android:exported="false" />
+        <activity android:name=".LoginActivity" android:windowSoftInputMode="adjustResize" android:exported="false" />
         <activity android:name=".ForgotPasswordActivity" android:exported="false" />
 
+        <!-- Main app -->
         <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".RestaurantListActivity" android:exported="false" />
 
+        <!-- Orders -->
         <activity android:name=".CartActivity" android:exported="false" />
         <activity android:name=".PlaceOrderActivity" android:exported="false" />
         <activity android:name=".OrderHistoryActivity" android:exported="false" />
+
+        <!-- Phase 1: Wallet, Favourites, Notifications -->
+        <activity android:name=".WalletActivity" android:exported="false" />
+        <activity android:name=".FavouritesActivity" android:exported="false" />
+        <activity android:name=".NotificationsActivity" android:exported="false" />
+
+        <!-- Phase 2: Partner / Rider registration -->
+        <activity android:name=".RestaurantRegisterActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" />
+        <activity android:name=".RiderRegisterActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" />
 
     </application>
 </manifest>

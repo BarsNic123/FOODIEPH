@@ -10,11 +10,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class PlaceOrderActivity : AppCompatActivity() {
+
+    private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_order)
@@ -28,17 +35,15 @@ class PlaceOrderActivity : AppCompatActivity() {
         val btnConfirm = findViewById<Button>(R.id.btnConfirmOrder)
         val btnBack = findViewById<ImageView>(R.id.btnBack)
 
-        // Setup RecyclerView
         rvItems.layoutManager = LinearLayoutManager(this)
         rvItems.adapter = FoodAdapter(CartManager.getItems())
 
-        // Setup Header Info
         val randomID = "FPH-${(1000..9999).random()}-${(1000..9999).random()}"
         tvOrderSerial.text = "Order ID: #$randomID"
+
         val currentDate = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault()).format(Date())
         tvOrderDate.text = "Date: $currentDate"
 
-        // Setup Prices
         val subtotal = CartManager.getTotalPrice()
         val deliveryFee = 49
         val total = subtotal + deliveryFee
@@ -54,7 +59,6 @@ class PlaceOrderActivity : AppCompatActivity() {
             val currentCartItems = CartManager.getItems()
 
             if (currentCartItems.isNotEmpty()) {
-                // THE MAPPING LOGIC: Converts FoodItem to OrderItem
                 val itemsToSave = currentCartItems.map { food ->
                     OrderItem(
                         foodName = food.name,
@@ -66,17 +70,27 @@ class PlaceOrderActivity : AppCompatActivity() {
                         riderName = "Juan Dela Cruz",
                         riderId = "RIDER-001",
                         deliveryTime = "30-45 mins",
-                        totalPrice = food.price.replace("₱", "").replace(",", "").trim().split(".")[0].toInt()
+                        totalPrice = food.price.replace("₱", "").replace(",", "").trim().toInt()
                     )
                 }
 
-                // These will now be green because your DatabaseHandler and CartManager are updated!
                 DatabaseHandler.addOrder(itemsToSave)
                 CartManager.addOrderToHistory(itemsToSave)
+
+                // Push notification to Firestore
+                val uid = auth.currentUser?.uid
+                if (uid != null) {
+                    db.collection("users").document(uid)
+                        .collection("notifications")
+                        .add(hashMapOf(
+                            "title" to "Order Confirmed! 🎉",
+                            "message" to "Order #$randomID via $method is being prepared. Estimated delivery: 30-45 mins.",
+                            "timestamp" to Timestamp.now()
+                        ))
+                }
             }
 
             Toast.makeText(this, "Order #$randomID confirmed via $method!", Toast.LENGTH_LONG).show()
-
             CartManager.clearCart()
 
             val intent = Intent(this, MainActivity::class.java)
