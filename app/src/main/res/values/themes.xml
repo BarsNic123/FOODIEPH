@@ -2,8 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.FoodiePH" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.FoodiePh" parent="Base.Theme.FoodiePh" />
+
+    <!-- Bottom nav label style — keeps text small so it never overlaps -->
+    <style name="BottomNavTextStyle">
+        <item name="android:textSize">10sp</item>
+    </style>
+
 </resources>
