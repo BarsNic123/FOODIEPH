@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "100000000001",
-    "project_id": "foodieph-android",
-    "storage_bucket": "foodieph-android.firebasestorage.app"
+    "project_number": "962100312942",
+    "project_id": "foodieph-a04dd",
+    "storage_bucket": "foodieph-a04dd.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:100000000001:android:aaaaaaaaaaaaaaaaaaaaaaaa",
+        "mobilesdk_app_id": "1:962100312942:android:3f630ce30776a1dd6adf7f",
         "android_client_info": {
           "package_name": "com.example.foodieph"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "962100312942-dilq24i0o2s55rktonql1bhijk5efc9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          "current_key": "AIzaSyDLl4UtxHCFe9HOLVjI80KkKKGaW_BJJt4"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962100312942-dilq24i0o2s55rktonql1bhijk5efc9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
