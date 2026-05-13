@@ -6,34 +6,41 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <!-- Toolbar with back, title, and favourite all in one row -->
-    <RelativeLayout
+    <!-- Toolbar: full width, fixed height, back + title + heart all in one row -->
+    <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="56dp"
         android:background="@android:color/white"
-        android:elevation="4dp"
-        android:paddingHorizontal="8dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:elevation="6dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Back button — full 48dp touch target -->
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/back"
+            android:scaleType="center"
             android:clickable="true"
             android:focusable="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
+            android:contentDescription="Back"
             app:tint="#333333" />
 
+        <!-- Title — takes all remaining space -->
         <TextView
             android:id="@+id/tvToolbarTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Category"
             android:textColor="#333333"
             android:textSize="18sp"
@@ -41,18 +48,19 @@
             android:maxLines="1"
             android:ellipsize="end" />
 
+        <!-- Favourite heart button — full 48dp touch target -->
         <ImageView
             android:id="@+id/btnFavourite"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_heart_outline"
+            android:scaleType="center"
             android:clickable="true"
             android:focusable="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:padding="8dp" />
-    </RelativeLayout>
+            android:contentDescription="Favourite" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRestaurants"
@@ -60,7 +68,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Fragment container — sits above the bottom nav -->
+    <!-- Fragment container sits above bottom nav -->
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
@@ -13,13 +13,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation" />
 
-    <!-- FAB cart — anchored above bottom nav, not overlapping content -->
+    <!-- FAB cart — sits above bottom nav, not overlapping content -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="72dp"
         android:src="@drawable/cart"
         android:contentDescription="Cart"
         app:backgroundTint="#C62828"
@@ -27,15 +27,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Bottom Navigation — fixed height, label mode set to avoid overlap -->
+    <!-- Bottom Navigation — 65dp height, red active color, small icon+label -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:background="@android:color/white"
-        app:itemIconSize="22dp"
-        app:itemTextAppearanceActive="@style/BottomNavTextStyle"
-        app:itemTextAppearanceInactive="@style/BottomNavTextStyle"
+        app:itemIconSize="24dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu" />
