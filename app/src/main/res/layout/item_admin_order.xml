@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvAdminOrderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order #FPH-0000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/tvAdminOrderTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="₱0.00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#C62828" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvAdminOrderItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 item(s)"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvAdminOrderUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User: ..."
+            android:textSize="11sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

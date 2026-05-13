@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Toolbar -->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#C62828"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back"
+            app:tint="@android:color/white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Partner With Us"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="#FFF3F3">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Restaurant Registration"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#C62828" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Please provide accurate business information. All fields are required for BIR compliance."
+                        android:textSize="13sp"
+                        android:textColor="#666666" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section: Business Info -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="BUSINESS INFORMATION" android:textSize="12sp"
+                android:textColor="#C62828" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+            <EditText android:id="@+id/etBusinessName" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="Business / Restaurant Name *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textCapWords" />
+
+            <EditText android:id="@+id/etOwnerName" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="Owner / Proprietor Full Name *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textPersonName" />
+
+            <EditText android:id="@+id/etRestaurantContact" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="Contact Number *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="phone" />
+
+            <EditText android:id="@+id/etRestaurantEmail" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="Business Email Address *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textEmailAddress" />
+
+            <EditText android:id="@+id/etRestaurantAddress" android:layout_width="match_parent"
+                android:layout_height="80dp" android:layout_marginBottom="20dp"
+                android:background="@drawable/bar" android:hint="Complete Business Address *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:paddingTop="12dp"
+                android:gravity="top" android:inputType="textMultiLine" />
+
+            <!-- Section: Government Credentials -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="GOVERNMENT CREDENTIALS" android:textSize="12sp"
+                android:textColor="#C62828" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+            <EditText android:id="@+id/etBirCertNumber" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="BIR Certificate of Registration No. *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textCapCharacters" />
+
+            <EditText android:id="@+id/etTin" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="TIN (Tax Identification Number) *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="number" />
+
+            <EditText android:id="@+id/etDtiSecNumber" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="DTI / SEC Registration Number *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textCapCharacters" />
+
+            <EditText android:id="@+id/etBusinessPermit" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="20dp"
+                android:background="@drawable/bar" android:hint="Mayor's / Business Permit Number *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textCapCharacters" />
+
+            <!-- Section: Restaurant Details -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="RESTAURANT DETAILS" android:textSize="12sp"
+                android:textColor="#C62828" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+            <EditText android:id="@+id/etCuisineType" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="12dp"
+                android:background="@drawable/bar" android:hint="Cuisine Type (e.g. Filipino, Chinese) *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="textCapWords" />
+
+            <EditText android:id="@+id/etOperatingHours" android:layout_width="match_parent"
+                android:layout_height="55dp" android:layout_marginBottom="24dp"
+                android:background="@drawable/bar" android:hint="Operating Hours (e.g. 8AM - 10PM) *"
+                android:paddingStart="16dp" android:paddingEnd="16dp" android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnSubmitRestaurant"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#C62828"
+                android:text="Submit Application"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                app:cornerRadius="14dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Applications are reviewed within 3-5 business days."
+                android:textSize="12sp"
+                android:textColor="#999999" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

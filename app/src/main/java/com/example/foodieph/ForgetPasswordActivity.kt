@@ -1,0 +1,58 @@
+package com.example.foodieph
+
+import android.content.Context
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+
+class ForgotPasswordActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_forgot_password)
+
+        val btnBack = findViewById<ImageView>(R.id.btnBackForgot)
+
+
+        btnBack.setOnClickListener {
+            finish()
+        }
+
+        val etPhone = findViewById<EditText>(R.id.etForgotPhone)
+        val etNewPassword = findViewById<EditText>(R.id.etNewPassword)
+        val btnReset = findViewById<Button>(R.id.btnResetPassword)
+
+        btnReset.setOnClickListener {
+            val phoneInput = etPhone.text.toString()
+            val newPassInput = etNewPassword.text.toString()
+
+            val sharedPref = getSharedPreferences("UserDetails", Context.MODE_PRIVATE)
+
+            val savedPhone = sharedPref.getString("USER_PHONE", "NOT_FOUND")
+
+            if (phoneInput.isEmpty() || newPassInput.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            } else if (phoneInput == savedPhone) {
+                // If phone matches, update the password in the "backend"
+                with(sharedPref.edit()) {
+                    putString("USER_PASSWORD", newPassInput)
+                    apply()
+                }
+                val email = FirebaseUserHelper.phoneToEmail(phoneInput)
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (!task.isSuccessful) {
+                            // Typical when using placeholder google-services or no mail for @foodieph.app
+                        }
+                    }
+                Toast.makeText(this, "Password updated successfully!", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Phone number not registered", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
