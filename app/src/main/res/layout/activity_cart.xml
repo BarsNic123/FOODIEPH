@@ -22,13 +22,12 @@
             android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/back"
+            android:src="@drawable/ic_back_arrow"
             android:scaleType="center"
             android:clickable="true"
             android:focusable="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back"
-            app:tint="#333333" />
+            android:contentDescription="Back" />
 
         <TextView
             android:layout_width="0dp"

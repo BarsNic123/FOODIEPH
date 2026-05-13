@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <!-- Toolbar: full width, fixed height, back + title + heart all in one row -->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,20 +20,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Back button — full 48dp touch target -->
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/back"
+            android:src="@drawable/ic_back_arrow"
             android:scaleType="center"
             android:clickable="true"
             android:focusable="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back"
-            app:tint="#333333" />
+            android:contentDescription="Back" />
 
-        <!-- Title — takes all remaining space -->
         <TextView
             android:id="@+id/tvToolbarTitle"
             android:layout_width="0dp"
@@ -48,7 +44,6 @@
             android:maxLines="1"
             android:ellipsize="end" />
 
-        <!-- Favourite heart button — full 48dp touch target -->
         <ImageView
             android:id="@+id/btnFavourite"
             android:layout_width="48dp"
